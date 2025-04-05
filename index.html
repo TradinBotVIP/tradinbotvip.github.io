@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TradinBotVIP</title>
   <style>
-   .trail {
+    .trail {
       position: fixed;
       width: 16px;
       height: 16px;
       background: #ffffff;
       border-radius: 50%;
       pointer-events: none;
-      box-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff;
+      box-shadow: 0 0 12px #ff80ff, 0 0 24px #ff80ff;
       animation: fadeOut 0.6s forwards;
       z-index: 9999;
     }
@@ -27,8 +27,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #000000; /* Fondo completamente negro */
-      color: #ffffff; /* Texto blanco */
+      background: #000000;
+      color: #ffffff;
       overflow-x: hidden;
       position: relative;
       cursor: none;
@@ -47,7 +47,7 @@
     .main-title {
       font-size: 3.5rem;
       font-weight: bold;
-      text-shadow: 0 0 15px #ffffff; /* Título con sombra blanca */
+      text-shadow: 0 0 15px #ffffff;
       animation: bounce 3.5s infinite;
     }
 
@@ -64,7 +64,7 @@
     .label {
       margin-top: 15px;
       font-size: 1rem;
-      text-shadow: 0 0 8px #ffffff; /* Etiquetas con sombra blanca */
+      text-shadow: 0 0 8px #ffffff;
     }
 
     .custom-modal {
@@ -82,12 +82,16 @@
 
     .modal-content {
       background: radial-gradient(circle, #ffffff 0%, #2a002f 100%);
-      color: #000000; /* Texto negro en el modal */
+      color: #000000;
       margin: 15% auto;
       padding: 30px 50px;
       border-radius: 24px;
       border: 2px solid #ffffff;
-      box-shadow: 0 0 40px #ffffff, 0 0 80px #ffffff, 0 0 120px #ffffff, 0 0 160px #ffffff;
+      box-shadow:
+        0 0 40px #ffffff,
+        0 0 80px #ffffff,
+        0 0 120px #ffffff,
+        0 0 160px #ffffff;
       width: fit-content;
       max-width: 90%;
       text-align: center;
@@ -110,14 +114,25 @@
     }
 
     .modal-content button:hover {
-      background-color: #f0f0f0;
-      color: #ff66c4;
-      box-shadow: 0 0 10px #ff66c4;
+      background-color: #fff;
+      color: #000000;
+      box-shadow: 0 0 10px #ffffff;
     }
 
-    @keyframes scaleIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    #loading-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000000;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    #loading-screen .loading-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ffffff;
     }
 
     .fix-button, .copy-btn, .download-btn, .get-started-btn {
@@ -144,7 +159,7 @@
 
     .copy-box, .dropdown, .download-box {
       display: none;
-      background-color: #330033;
+      background-color: #000000;
       padding: 15px;
       margin-top: 10px;
       border-radius: 10px;
@@ -170,8 +185,8 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #000000; /* Fondo negro en la pantalla de carga */
-      color: #ffffff; /* Texto blanco en la pantalla de carga */
+      background: #000000;
+      color: #ffffff;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -186,7 +201,6 @@
       cursor: none !important;
     }
 
-    /* Modal */
     .modal {
       position: fixed;
       z-index: 9999;
@@ -203,7 +217,7 @@
       padding: 30px;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 0 20px #ffffff;
+      box-shadow: 0 0 20px #ff94f4;
     }
 
     .modal-content p {
@@ -221,12 +235,11 @@
       color: #000000;
     }
 
-    /* Cursor Trail */
     .trail {
       position: absolute;
       height: 8px;
       width: 8px;
-      background: #ffffff;
+      background: #ff94f4;
       border-radius: 50%;
       pointer-events: none;
       opacity: 0.6;
@@ -284,13 +297,13 @@
         <button class="copy-btn" onclick="copyFrom('tool2')">Copy to Clipboard</button>
       </div>
 
-      <button class="fix-button" onclick="toggleCopyBox('tool3', this)">Fix Low FPS (ANYGAME) </button>
+      <button class="fix-button" onclick="toggleCopyBox('tool3', this)">Fix Low FPS (ANYGAME)</button>
       <div class="copy-box" id="tool3">
         <code>Coming soon...</code>
         <button class="copy-btn" onclick="copyFrom('tool3')">Copy to Clipboard</button>
       </div>
 
-      <button class="fix-button" onclick="toggleCopyBox('tool4', this)">Fix HIGH PING (ANYGAME) </button>
+      <button class="fix-button" onclick="toggleCopyBox('tool4', this)">Fix HIGH PING (ANYGAME)</button>
       <div class="copy-box" id="tool4">
         <code>Coming soon...</code>
         <button class="copy-btn" onclick="copyFrom('tool4')">Copy to Clipboard</button>
@@ -355,12 +368,12 @@
     document.addEventListener('mousemove', e => {
       const trail = document.createElement('div');
       trail.className = 'trail';
-      trail.style.left = `${e.pageX}px`;
-      trail.style.top = `${e.pageY}px`;
+      trail.style.top = `${e.clientY}px`;
+      trail.style.left = `${e.clientX}px`;
       document.body.appendChild(trail);
       setTimeout(() => trail.remove(), 600);
     });
   </script>
-<audio id="bg-music" src="nights.mp3" autoplay loop></audio>
+
 </body>
 </html>
