@@ -12,7 +12,7 @@
   background: #000000;
   border-radius: 50%;
   pointer-events: none;
-  box-shadow: 0 0 12px #FFFFFF, 0 0 24px #FFFFFF;
+  box-shadow: 0 0 12px #ff80ff, 0 0 24px #ff80ff;
   animation: fadeOut 0.6s forwards;
   z-index: 9999;
 }
@@ -27,8 +27,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #000000;
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      color: #ffd6f9;
       overflow-x: hidden;
       position: relative;
       cursor: none;
@@ -47,7 +47,7 @@
     .main-title {
       font-size: 3.5rem;
       font-weight: bold;
-      text-shadow: 0 0 15px #FFFFFF;
+      text-shadow: 0 0 15px #ff94f4;
       animation: bounce 3.5s infinite;
     }
 
@@ -101,6 +101,7 @@
   transform: scale(1.1);
 }
 
+
 .modal-content button {
   background-color: #ffb6e6;
   color: #2a002f;
@@ -123,6 +124,7 @@
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
 
     .fix-button, .copy-btn, .download-btn, .get-started-btn {
       margin: 10px;
@@ -174,8 +176,8 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #000000;
-      color: #FFFFFF;
+      background: #1a001f;
+      color: #ffd6f9;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -190,6 +192,8 @@
   cursor: none !important;
 }
 
+
+    /* Modal */
     .modal {
       position: fixed;
       z-index: 9999;
@@ -224,6 +228,7 @@
       color: #30001e;
     }
 
+    /* Cursor Trail */
     .trail {
       position: absolute;
       height: 8px;
@@ -245,11 +250,13 @@
 </head>
 <body>
 
+  <!-- 🔃 Loading Screen -->
   <div id="loading-screen">
     <div class="loading-title">Velocity Support</div>
     <button class="get-started-btn" onclick="showModal()">Get Started</button>
   </div>
 
+  <!-- ⚠️ Modal -->
   <div class="modal" id="adminModal">
     <div class="modal-content">
       <p>⚠️PowerShell MUST be run as ADMINISTRATOR or it will not work⚠️</p>
@@ -257,6 +264,7 @@
     </div>
   </div>
 
+  <!-- 💻 Main Content -->
   <div class="centered" id="main-content">
     <div class="main-title">Velocity Support</div>
     <div class="label">PowerShell MUST be run as ADMINISTRATOR or it will not work</div>
@@ -264,7 +272,11 @@
     <div class="label">🔥 Most Popular Fix 🔥</div>
     <button onclick="toggleCopyBox('popular-command', this)" class="fix-button active">Fix Velocity injection issues</button>
     <div class="copy-box" id="popular-command">
-      <code>Coming soon...</code>
+      <code>Coming soon...
+
+
+
+</code>
       <button class="copy-btn" onclick="copyFrom('popular-command')">Copy to Clipboard</button>
     </div>
 
@@ -273,25 +285,38 @@
     <div class="dropdown" id="dropdown" style="flex-direction: column;">
       <button class="fix-button" onclick="toggleCopyBox('tool1', this)">Fix High CPU Usage</button>
       <div class="copy-box" id="tool1">
-        <code>Coming soon...</code>
+        <code>Coming soon...
+
+
+</code>
         <button class="copy-btn" onclick="copyFrom('tool1')">Copy to Clipboard</button>
       </div>
 
       <button class="fix-button" onclick="toggleCopyBox('tool2', this)">Fix Slow PC</button>
       <div class="copy-box" id="tool2">
-        <code>Coming soon...</code>
+        <code>Coming soon...
+
+</code>
         <button class="copy-btn" onclick="copyFrom('tool2')">Copy to Clipboard</button>
       </div>
 
-      <button class="fix-button" onclick="toggleCopyBox('tool3', this)">Fix Low FPS (ANYGAME)</button>
+      <button class="fix-button" onclick="toggleCopyBox('tool3', this)">Fix Low FPS (ANYGAME) </button>
       <div class="copy-box" id="tool3">
-        <code>Coming soon...</code>
+        <code>Coming soon...
+
+
+
+</code>
         <button class="copy-btn" onclick="copyFrom('tool3')">Copy to Clipboard</button>
       </div>
 
-      <button class="fix-button" onclick="toggleCopyBox('tool4', this)">Fix HIGH PING (ANYGAME)</button>
+      <button class="fix-button" onclick="toggleCopyBox('tool4', this)">Fix HIGH PING (ANYGAME) </button>
       <div class="copy-box" id="tool4">
-        <code>Coming soon...</code>
+        <code>Coming soon...
+
+
+
+</code>
         <button class="copy-btn" onclick="copyFrom('tool4')">Copy to Clipboard</button>
       </div>
     </div>
@@ -305,6 +330,7 @@
     </div>
   </div>
 
+  <!-- 🔧 Scripts -->
   <script>
     function startSite() {
       document.getElementById('adminModal').style.display = 'none';
@@ -349,6 +375,7 @@
       });
     }
 
+    // Cursor Trail Effect
     document.addEventListener('mousemove', e => {
       const trail = document.createElement('div');
       trail.className = 'trail';
@@ -358,6 +385,6 @@
       setTimeout(() => trail.remove(), 600);
     });
   </script>
-  <audio id="bg-music" src="nights.mp3" autoplay loop></audio>
+<audio id="bg-music" src="nights.mp3" autoplay loop></audio>
 </body>
 </html>
